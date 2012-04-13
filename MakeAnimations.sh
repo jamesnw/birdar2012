@@ -26,9 +26,9 @@ fi
 #now we invoke ImageMagick to create the animations.
 #the format is as follows: convert -delay $theDelay ~/path/to/radar/data/state/station/product/$theDateStamp*.png ~/path/to/animation/storage/directory/STATE-STATION-product-$theDate.gif
 #just change the paths below to point to the correct paths on your system and add copy/paste the lines to add radar stations
-convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.gif 
-convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.gif
+convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.jpg 
+convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.jpg 
 
-convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.gif 
-convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.gif
+convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.jpg 
+convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize -write ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.gif -delete 1--1 -resize 320x320 ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.jpg 
 
