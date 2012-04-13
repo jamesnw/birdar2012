@@ -3,8 +3,8 @@
 	#BIRDAR MakeAnimations.sh
 	#BIRDAR: visualizing nocturnal bird migration using Weather Service Radar
 	#shell script to automatically download radar and create animated .gif images
-	#shell script written by James Stucky Weber jamesnw@gmail.com and edited by David La Puma david@woodcreeper.com
-	#DEPENDENCIES: birdar.php, birdar_downloads.php (both written by Mike Mills michaelmills7@gmail.com and edited by Andrew Weber ajw5179@psu.edu and James Weber). ImageMagick (http://www.imagemagick.org/script/index.php)
+	#shell script written by James Stuckey Weber jamesnw@gmail.com and edited by David La Puma david@woodcreeper.com
+	#DEPENDENCIES: birdar.php, birdar_downloads.php (both written by Mike Mills michaelmills7@gmail.com and edited by Andrew Weber ajw5179@psu.edu and James Stuckey Weber). ImageMagick (http://www.imagemagick.org/script/index.php)
 
 #change the value below to set the time delay between animation frames
 theDelay="40" 
@@ -22,12 +22,13 @@ if [ "$RESPONSE" = "y" ]; then
 	php ~/Documents/MyWebsites/woodcreeper/nightly_spring2012/birdar.php	#<-- edit this path to reflect the location of your birdar.php file
 fi
 
+
 #now we invoke ImageMagick to create the animations.
 #the format is as follows: convert -delay $theDelay ~/path/to/radar/data/state/station/product/$theDateStamp*.png ~/path/to/animation/storage/directory/STATE-STATION-product-$theDate.gif
 #just change the paths below to point to the correct paths on your system and add copy/paste the lines to add radar stations
-convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.gif 
-convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.gif
+convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDIX-br-$theDate.gif 
+convert -delay $theDelay ~/home/user/websites/radar/nj/kdix/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDIX-bv-$theDate.gif
 
-convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.gif 
-convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.gif
+convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDOX-br-$theDate.gif 
+convert -delay $theDelay ~/home/user/websites/radar/de/kdox/br/$theDateStamp*.png -layers Optimize ~/home/user/websites/radar/animations/NJ-KDOX-bv-$theDate.gif
 
